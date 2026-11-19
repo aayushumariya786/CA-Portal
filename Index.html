@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>THREAD & LOOM - Clothing Store</title>
+
+    <link rel="stylesheet" href="Index.css">
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announcement">
+        NEW SEASON, NEW STORIES — FREE SHIPPING ON ORDERS OVER ₹1,999
+    </div>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">THREAD <span>&</span> LOOM</div>
+
+        <nav id="navbar">
+            <a href="#">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#story">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <button onclick="openSearch()">Search</button>
+            <button onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+            <p>THE EVERYDAY COLLECTION</p>
+
+            <h1>
+                Wear What<br>
+                <span>Moves You.</span>
+            </h1>
+
+            <p>
+                Discover modern fashion, comfortable outfits
+                and beautiful everyday clothing.
+            </p>
+
+            <a href="#shop" class="shop-btn">Explore Collection →</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900"
+                 alt="Fashion collection">
+        </div>
+
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+
+        <h2>Shop By Category</h2>
+
+        <div class="category-container">
+
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600">
+                <h3>Women's Fashion</h3>
+                <a href="#shop" onclick="filterProducts('Women')">Explore →</a>
+            </div>
+
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600">
+                <h3>Men's Fashion</h3>
+                <a href="#shop" onclick="filterProducts('Men')">Explore →</a>
+            </div>
+
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600">
+                <h3>Accessories</h3>
+                <a href="#shop" onclick="filterProducts('Accessories')">Explore →</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Products -->
+    <section class="shop-section" id="shop">
+
+        <h2>Our Latest Collection</h2>
+
+        <div class="filters">
+
+            <button onclick="filterProducts('All')">All</button>
+            <button onclick="filterProducts('Women')">Women</button>
+            <button onclick="filterProducts('Men')">Men</button>
+            <button onclick="filterProducts('Accessories')">Accessories</button>
+
+        </div>
+
+        <div class="product-container" id="productContainer">
+
+        </div>
+
+    </section>
+
+    <!-- About -->
+    <section class="about" id="story">
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900"
+                 alt="Clothing store">
+        </div>
+
+        <div class="about-content">
+
+            <h2>Fashion Is More Than Clothes.</h2>
+
+            <p>
+                We believe fashion should be comfortable,
+                stylish and affordable.
+
+                Our collection brings together modern designs
+                and everyday essentials.
+            </p>
+
+            <a href="#shop" class="shop-btn">Discover More →</a>
+
+        </div>
+
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="contact">
+
+        <h2>Join Our Fashion Community</h2>
+
+        <p>Subscribe to receive new collection updates.</p>
+
+        <form id="newsletterForm">
+
+            <input type="email" id="email"
+                   placeholder="Enter your email" required>
+
+            <button type="submit">Subscribe</button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <h2>THREAD & LOOM</h2>
+
+        <p>Style That Speaks. Comfort That Lasts.</p>
+
+        <p>© 2026 THREAD & LOOM. All Rights Reserved.</p>
+
+    </footer>
+
+    <!-- Search Modal -->
+    <div class="search-box" id="searchBox">
+
+        <button onclick="closeSearch()">✕</button>
+
+        <input type="text"
+               id="searchInput"
+               placeholder="Search products..."
+               oninput="searchProducts()">
+
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+
+        <button class="close-btn" onclick="closeCart()">✕</button>
+
+        <h2>Shopping Cart</h2>
+
+        <div id="cartItems"></div>
+
+        <h3>Total: ₹<span id="totalPrice">0</span></h3>
+
+        <button class="checkout-btn" onclick="checkout()">
+            Checkout
+        </button>
+
+    </div>
+
+    <script src="Index.js"></script>
+
+</body>
+</html>
